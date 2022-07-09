@@ -1,0 +1,157 @@
+<div class="main">
+  <div class="head-bar">
+    <h2 class="card_headding">Edit Trainees</h2>
+  </div>
+
+  <form action="/staff/dashboard/viewtrainees/profile/edittraineeinfo/{{trainee.tokennumber}}" class="row g-3" method="POST" onsubmit="submitForm('{{trainee.tokennumber}}')">
+    
+
+      <h5 class="card_subheadding">Personal Details :</h5>
+
+      <div class="col-md-6">
+        <label for="fname" class="form-label">First Name :</label>
+        <input type="text" value="{{trainee.firstname}}" class="form-control" name="firstname" required>
+      </div>
+      <div class="col-md-6">
+        <label for="lname" class="form-label">Last Name :</label>
+        <input type="text" value="{{trainee.lastname}}" class="form-control" name="lastname" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Personal Email:</label>
+        <input type="email" value="{{trainee.email}}" class="form-control" name="email" requiredplaceholder="@gmail.com" required>
+      </div>
+      <div class="col-md-6">
+        <label for="dob" class="form-label">Date of Birth:</label>
+        <input type="date" value="{{trainee.dob}}" class="form-control" name="dob" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="gender">Gender :</label>
+        <select class="form-select" name="gender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">other</option>
+        </select>
+      </div>
+
+      
+      <div class="col-md-6">
+        <label class="form-label" for="year">year :</label>
+        <select class="form-select" name="year" required>
+          <option value="">Choose...</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="course">Course :</label>
+        <select class="form-select" name="course">
+          <option value="{{trainee.course}}" selected>{{trainee.course}}</option>
+          <option value="CP08">Diploma in Computer Engineering &
+            IT Infrastructure</option>
+          <option value="CP09">Diploma in IT & Data Science</option>
+          <option value="other">other</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="category">Category :</label>
+        <select class="form-select" name="category">
+          <option value="{{trainee.category}}" selected>{{trainee.category}}</option>
+          <option value="dayscholle">DAYSCHOLLER</option>
+          <option value="hostller">HOSTLLER</option>
+
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label" for="quota">Quota :</label>
+        <select class="form-select" name="quota">
+          <option value="{{trainee.quota}}" selected>{{trainee.quota}}</option>
+          <option value="merit">MERIT</option>
+          <option value="fullfee">FULL FEE</option>
+
+        </select>
+      </div>
+    
+      
+
+      <div class="col-md-6">
+        <label for="tokennumber" class="form-label">Token Number :</label>
+        <input type="text" value="{{trainee.tokennumber}}" class="form-control" name="tokennumber" required>
+      </div>
+      <div class="col-md-6">
+        <label for="aadhar" class="form-label">Aadhar Number :</label>
+        <input type="text" value="{{trainee.aadharnumber}}" class="form-control" name="aadharnumber" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone Number:</label>
+        <input type="text" value="{{trainee.phonenumber}}" class="form-control" name="phonenumber" required>
+      </div>
+      <div class="col-md-6">
+        <label for="altphone" class="form-label">Alternative Number:</label>
+        <input type="text" value="{{trainee.alternativephonenumber}}" class="form-control" name="alternativephonenumber" required>
+      </div>
+
+      <h5 class="card_subheadding">Guardian Details :</h5>
+
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Father's Name:</label>
+        <input type="text" value="{{trainee.fathersname}}" class="form-control" name="fathersname" required>
+      </div>
+      <div class="col-md-6">
+        <label for="altphone" class="form-label">Father's Mobile :</label>
+        <input type="text" value="{{trainee.fathersphonenumber}}" class="form-control" name="fathersphonenumber" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Mother's name:</label>
+        <input type="text" value="{{trainee.mothersname}}" class="form-control" name="mothersname" required>
+      </div>
+      <div class="col-md-6">
+        <label for="altphone" class="form-label">Mother's Mobile:</label>
+        <input type="text" value="{{trainee.mothersphonenumber}}" class="form-control" name="mothersphonenumber" required>
+      </div>
+
+      <h5 class="card_subheadding">Address Details :</h5>
+
+      <div class="col-12">
+        <label for="Address" class="form-label">Address</label>
+        <input
+          type="text"
+          value="{{trainee.permanentaddress}}"
+          class="form-control"
+          name="permanentaddress"
+          placeholder="1234 Main St"
+          required />
+      </div>
+    <div class="buttons-grp">
+      <button value="Submit"   class="submit_button" >Submit</button>
+    </div>
+    </div>
+    
+
+  </form>
+
+</div>
+
+<script>
+ function submitForm(traineeid)
+{
+ 
+  Swal.fire({
+  title: 'Trainee updated succesfully',
+  icon: 'success',
+  showCancelButton: false,
+
+}).then((\) => {
+      window.location='/staff/dashboard/viewtrainees/profile/'+traineeid
+})
+
+}
+</script>

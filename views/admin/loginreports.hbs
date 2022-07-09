@@ -1,0 +1,69 @@
+
+
+<script>
+  $(document).ready(function () {
+    var t = $('#example').DataTable({
+      ordering:false,
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            },
+        ],
+        order: [[1, 'asc']],
+    });
+ 
+    t.on('order.dt search.dt', function () {
+        let i = 1;
+ 
+        t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+            this.data(i++);
+        });
+    }).draw();
+});
+</script>
+
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.jqueryui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.jqueryui.min.css">
+<button onclick="remove()" class="btn btn-danger " style="float:right; margin-bottom:10px;margin-right:10px;">Delete all info</button>
+<button type="submit" class="btn btn-success" style="float:right;margin-right:10px;">Download</button>
+        
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>sl</th>
+                <th>TokenNumber/StaffId</th>
+                <th>Login Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each logins}}
+            <tr>
+                <td></td>
+                <td>{{this.id}}</td>
+                <td>{{this.time}}</td>
+            </tr>
+            {{/each}}
+            
+        </tbody>
+    </table>
+    
+<script>
+function remove()
+{
+   Swal.fire({
+  icon: 'warning',
+  title: 'Are you sure',
+  showCancelButton:true,
+  confirmButtonText:'Yes',
+}).then((result)=>{
+    if(result.isConfirmed)
+    {
+    window.location='/reports/loginreports/deletereports'
+    }
+})
+}
+</script>
+

@@ -1,0 +1,81 @@
+
+
+<div class="main">
+  
+  <div class="head-bar">
+    <h2 class="card_headding">Add Staff</h2>
+  </div>
+  {{#if validErr}}
+  <p style="color: red;">* Staff id already exist</p>
+  {{/if}}
+
+  <form class="row g-3" action="/addstaff" method="post" onsubmit="excelsubmit()">
+
+    <h5 class="card_subheadding">Personal Details :</h5>
+
+
+    <div class="col-md-6">
+      <label for="staffid" class="form-label">staff id :</label>
+      <input type="text" style="text-transform:lowercase ;" class="form-control" name="staffid" required="required"/>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+      <label for="fname" class="form-label">First Name :</label>
+      <input type="text" class="form-control" name="firstname" required="required"/>
+    </div>
+    <div class="col-md-6">
+      <label for="lname" class="form-label">Last Name:</label>
+      <input type="text" class="form-control" name="lastname" required="required">
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Personal Email:</label>
+      <input type="email" class="form-control" name="email" required="required" placeholder="@gmail.com"/>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">NTTF mail:</label>
+      <input type="email" class="form-control" name="nttfemail" required="required" placeholder="@nttf.co.in"/>
+    </div>
+
+
+    <div class="col-md-6">
+      <label for="phone" class="form-label">Phone Number:</label>
+      <input type="text" class="form-control" name="phonenumber" required="required"/>
+    </div>
+    <div class="col-md-6">
+      <label for="altphone" class="form-label">Alternative Number:</label>
+      <input type="text" class="form-control" name="alternativenumber" required="required"/>
+    </div>
+
+
+    <div class="buttons-grp">
+      <button type="reset" class="btn btn-danger">Reset</button>
+      <button  class="btn btn-success" value="Submit">Submit</button>
+    </div>
+      <div class="btn-group" style="float:left; margin-bottom:15px">
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"  >
+    info
+  </button>
+  <div class="dropdown-menu">
+    <p style="color: rgb(194, 2, 2);margin:20px;float:right">*Note :Default login userid and password for staff is their staffid and primary phone number</p>
+  </div>
+</div>
+  </form>
+
+</div>
+
+
+<script>
+function excelsubmit()
+{
+  Swal.fire({
+  icon: 'success',
+  title: 'Staff added succesfully',
+}).then(() => {
+      window.location='/addstaff'
+})
+}
+</script>
+

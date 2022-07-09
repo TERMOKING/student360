@@ -1,0 +1,79 @@
+    
+
+<script>
+  $(document).ready(function () {
+    var t = $('#example').DataTable({
+      paging:false,
+      ordering:false,
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            },
+        ],
+        order: [[1, 'asc']],
+    });
+ 
+    t.on('order.dt search.dt', function () {
+        let i = 1;
+ 
+        t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+            this.data(i++);
+        });
+    }).draw();
+});
+</script>
+
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.jqueryui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.jqueryui.min.css">
+    
+    <table class="display" id="example">
+    <div  class="btn-group" style="float:left; margin:5px">
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"  >
+    info
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" style="background-color: rgb(73, 158, 16);color: white;">NORMAL</a>
+    <a class="dropdown-item" style="background-color: rgba(255, 94, 0, 0.897);color: white;" >MODERATE</a>
+    <a class="dropdown-item" style="background-color:rgb(230, 20, 20);color: white;" >Bad</a>
+
+  
+  </div>
+</div>
+      <thead>
+
+        <th></th>
+        <th>Name</th>
+        <th>Token number</th>
+        <th>Contact number</th>
+        <th>Status</th>
+        
+      </thead>
+
+      <tbody>
+        {{#each trainees}}
+        <tr style="cursor: pointer;" onclick="parent.location='/staff/dashboard/mentoring/student?id={{this.tokennumber}}'">
+          <td></td>
+          <td>{{this.firstname}} {{this.lastname}}</td>
+		  <td>{{this.tokennumber}}</td>
+		  <td>{{this.phonenumber}}</td>
+      <td style="text-transform:uppercase;color: white" id="{{this.mentorstatus}}">{{this.mentorstatus}}</td>
+        </tr>
+		{{/each}}
+      </tbody>
+
+    </table>
+
+<style>
+  #normal{
+    background-color: rgb(73, 158, 16);
+  }
+  #moderate{
+    background-color: rgba(255, 94, 0, 0.897);
+  }
+  #danger{
+    background-color: rgb(230, 20, 20);
+  }
+</style>

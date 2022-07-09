@@ -1,0 +1,146 @@
+<div class="row">
+
+
+<div class="card__container">
+<div>
+   <h3>Dashboard</h3>  {{!--<h5 style="color: #1a2238;margin:10px; float:right; "id="time"></h5> --}}
+</div>
+ 
+
+  <div onclick="parent.location='/dashboard/courselist'" class="dash" style="background-color:white;">
+    <div class="card__body" >
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+</div>
+      <div class="card__title">   Trainees</div>
+      <div class="card__desc">Total trainees :  {{count.trainee}}</div>
+    </div>
+    </div>
+
+  <div onclick="parent.location='/dashboard/viewstaff'" class="dash"  style="background-color:white;"  >
+    <div class="card__body">
+<div class="round_icon" style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-id-card"></i> </div>
+      <div class="card__title">Staff</div>
+      <div class="card__desc">Total staff : {{count.staff}}</div>
+    </div>
+  </div>
+
+
+  <div onclick="parent.location='/dashboard/attendance'" class="dash" style="background-color:white;" >
+    <div class="card__body"> 
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-check" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"></i>Attendance</div>
+      <div class="card__desc">Displays current month</div>
+      
+    </div>
+  </div>
+
+
+ <div  class="dash" style="background-color:white;">
+    <div class="card__body">
+<div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-money-bill"></i> </div>
+      <div class="card__title">    Fees</div>
+      <div class="card__desc">Fees related info</div>
+    </div>
+    </div>
+
+
+  <div onclick="parent.location='/dashboard/nocn'" class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);padding-left:17px;"><i class="fa fa-university" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"> NOCN</div>
+      <div class="card__desc">NOCN related info</div>
+    </div>
+  </div>
+
+
+  <div  class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fas fa-marker"></i> </div>
+      <div  class="card__title">   Exams</div>
+      <div class="card__desc">Exam related info</div>
+    </div>
+    </div>
+    
+ 
+  <div onclick="parent.location='/reports'"class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%); padding-left:17px;"><i class="fa fa-envelope" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Reports</div>
+      <div class="card__desc">Report details</div>
+    </div>
+  </div> 
+
+
+  <div onclick="parent.location='/reports/loginreports'" class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-laptop" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Logins</div>
+      <div class="card__desc">Login details</div>
+    </div>
+  </div>
+
+ {{!-- <div onclick="parent.location='/dashboard/pending'" class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-users" aria-hidden="true"></i></div>
+      <div class="card__title">Profiles</div>
+      <div class="card__desc">user profiles</div>
+    </div>
+  </div> --}}
+
+  <div onclick="parent.location='/dashboard/mentoring'" class="dash" style="background-color:white;" >
+    <div class="card__body">
+<div class="round_icon"style="background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);padding-left:16px;"><i class="fas fa-brain"></i>
+</div>
+      <div class="card__title">Mentoring</div>
+      <div class="card__desc">mentoring details</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<div class="row">
+
+
+<canvas id="myChart" style="background-color:rgb(247 249 249) ; border-radius:10px;" class="col-lg-6"></canvas>
+
+<script>
+
+
+var xValues = ["CP08" , "CP09" , "CP15"];
+var yValues = [{{course.cp09}},{{course.cp15}}];
+var barColors = ["red", "green","blue"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Total Trainees 2022"
+    }
+  }
+});
+
+
+</script>
+
+</div>
+</div>

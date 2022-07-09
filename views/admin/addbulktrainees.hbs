@@ -1,0 +1,65 @@
+<script src="http://code.jquery.com/jquery.js"></script>
+
+    <h3 class="card_headding">Add Trainee Bulk</h3>
+
+<div class="excel_submit_card">
+  <h4 class="card_headding">Upload Excel File</h4>
+    <form action="/addbulktrainees" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="excel">BrowseFile</label>
+          <input type="file" class="form-control1" name="excel" required>
+          
+          <input onclick="excelsubmit()" class="excel_submit_button" type="submit" value="submit">
+      </div>
+    </form>
+</div>
+
+<script>
+function excelsubmit()
+{
+  let timerInterval
+Swal.fire({
+  icon:'warning',
+  title: 'Document Uploading!',
+  html: 'Do not close this window, This window will close automatically when document is uploaded',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
+}
+</script>
+
+
+<!--<div class="row" style="margin-top:125px;margin-left:40%; margin-right:10%; width: fit-content;">
+    <div class="lg-6">
+            <div class="card border-danger mb-3" style="max-width: 20rem;">
+                    <div class="card-header">Upload Excel File</div>
+                        <div class="card-body">
+                          <form action="/addbulktrainees" method="POST" enctype="multipart/form-data">
+                         <div class="form-group">
+                           <label for="excel">BrowseFile</label><input type="file" class="form-control" name="excel" required><br><br>
+                           <input type="submit" value="submit">
+                         </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+</div><br><br>
+-->
+
+

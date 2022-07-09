@@ -1,0 +1,115 @@
+
+   <div class="table-responsive">
+    
+    <div class="btn-group" style="float:left; margin-top:5px">
+  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"  >
+    info
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" style="background-color:rgb(24, 126, 11);color:white;" >90-100</a>
+    <a class="dropdown-item" style="background-color: rgba(112, 202, 9, 0.822);color: white;">80-89</a>
+    <a class="dropdown-item" style="background-color: rgba(255, 94, 0, 0.897);color: white;" >60-79</a>
+    <a class="dropdown-item" style="background-color:rgb(230, 20, 20);color: white;" >0-60</a>
+
+  
+  </div>
+</div>
+<div>
+
+  <div style="float:right;margin:10px">
+    <form  method="POST" action="/staff/viewattendancebymonth">
+    <p style="font-size:10px">VIEW PREVIEOUS MONTHS ATTENDANCE</p>
+      <input  name="date" style="border-radius:5px;color:rgb(29, 98, 247);width:150px; border-color:rgb(0, 119, 255)"type="month"  required>
+      <input class="btn btn-success" style="height:32px;" type="submit" value="view" >
+  </form>
+</div>
+
+</div>
+
+<table  class="table cell-border hover table-bordered" id="viewTable">
+
+
+  <thead>
+	<th style="width:60px ;position:sticky">tokennumber</th>
+  <th style="width:40px ;">Semester Percentage</th>
+  {{#each attendance.[0].status}}
+  
+	{{!-- {{#each this.status}} --}}
+	
+    <th style="background-color:rgb(102, 102, 102) ;color:white;">{{this.date}}</th>
+	{{/each}}
+	{{!-- {{/each}} --}}
+  
+  </thead>
+  <tbody>
+	{{#each attendance}}
+  <tr>  
+    
+    <td style="position:sticky">{{this.tokennumber}}</td>
+
+    <td id="id{{this.percentage}}">{{this.percentage}}</td>
+
+	{{#each this.status}}
+  {{#if this.status}}
+	<td style="background-color: rgba(10, 148, 10, 0.822); color:rgb(255, 255, 255); text-align:center">P</td>
+  {{else}}
+  <td style="background-color: rgba(185, 8, 8, 0.87); color:white;text-align:center;">A</td>
+  {{/if}}
+	{{/each}}
+  </tr>
+  {{/each}}
+  </tbody>
+  
+</table>
+  </div>
+
+
+
+{{!-- script --}}
+
+<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#viewTable').DataTable({
+        
+        info:false,
+        paging:false
+    });
+});
+
+</script>
+
+{{!-- style --}}
+
+
+
+<style>
+
+#id100, #id99, #id98 ,#id97 ,#id96 ,#id95 ,#id94 ,#id93 ,#id92 ,#id91 ,#id90{
+  background-color:rgb(24, 126, 11);
+  color: white;
+}
+#id89, #id88,#id87,#id86,#id85,#id84,#id83,#id82,#id81,#id80{
+  background-color:rgba(112, 202, 9, 0.822);
+  color: white;
+}
+
+#id79, #id78,#id77,#id76,#id75,#id74,#id73,#id72,#id71,
+#id70,#id69, #id68,#id67,#id66,#id65,#id64,#id63,#id62,#id61,#id60{
+  background-color: rgba(255, 94, 0, 0.897);
+  color: white;
+}
+
+#id0,#id1,#id2,#id4,#id5,#id6,#id7,#id8,#id9,#id10,#id11,
+#id12,#id13,#id14,#id15,#id16,#id17,#id18,#id19,#id20,
+#id21,#id23,#id24,#id25,#id26,#id27,#id28,#id30,#id31,
+#id32,#id33,#id34,#id35,#id36,#id37,#id38,#id39,#id40,
+#id41,#id42,#id44,#id45,#id46,#id47,#id48,#id49,#id50,
+#id51,#id52,#id53,#id54,#id55,#id56,#id57,#id58,#id59{
+  background-color: rgb(230, 20, 20);
+  color:white;
+  
+}
+
+</style>

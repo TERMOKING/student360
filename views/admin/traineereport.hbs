@@ -1,0 +1,33 @@
+<div class="main">
+<form method="post" action="/traineereport">
+    <div class="row">
+        <h2>Trainee Report</h2>
+        <p>Download trainee report as excel</p>
+         <div class="col-md-6">
+        <label class="form-label" for="course">Course :</label>
+        <select class="form-select" name="course" required>
+          <option value="">Choose...</option>
+          {{#each course}}
+                    <option  value="{{this.courseid}}">{{this.coursename}} - ({{this.courseid}})</option>
+                    {{/each}}
+        </select>
+      </div>
+<div class="col-md-6">
+
+        <label class="form-label" for="year">year :</label>
+        <select class="form-select" name="year" required>
+          <option value="">Choose...</option>
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+        </select>
+      </div>
+
+     
+      </div>
+      <div style="height:40px ;margin:20px;">
+  <button type="submit" style="float:right"  class="btn btn-success">Download</button>
+        
+      </div>
+    </form>
+</div>

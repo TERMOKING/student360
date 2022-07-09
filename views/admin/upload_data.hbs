@@ -1,0 +1,45 @@
+<h3 class="card_headding">Upload Documents</h3>
+
+<div class="doc_submit_card">
+
+    <form action="/upload_data" class="row g-3" method="POST" enctype="multipart/form-data" onsubmit="excelsubmit()">
+        <div class="col-md-6">
+            <label for="tokennumber" class="form-label">Token Number :</label>
+            <input type="text" class="form-control" name="tokennumber" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="excel">AADHAR:</label>
+            <input type="file" class="form-control1" name="aadhar" accept=".pdf,.doc"><br><br>
+
+            <label for="excel">SSLC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+            <input type="file" class="form-control1" name="sslc" accept=".pdf,.doc"><br><br>
+
+            <label for="excel">PlusTwo:&nbsp;</label>
+            <input type="file" class="form-control1" name="plustwo" accept=".pdf,.doc"><br><br>
+
+            <label for="excel">Resume:&nbsp;</label>
+            <input type="file" class="form-control1" name="resume" accept=".pdf,.doc"><br><br>
+
+            <button  class="upload_button" value="Submit">Submit</button>
+            {{!-- <iframe style="border:1px bold; width: 100%; height: 500px;"
+                src="/public/uploads/Brain Computing Interface.pdf"></iframe> --}}
+        </div>
+    </form>
+</div>
+
+<script>
+    function excelsubmit() {
+        Swal.fire({
+            title: 'Document Uploaded',
+            icon: 'success',
+            confirmButtonColor: '#28a745',
+            confirmButtonText: 'OK',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '/upload_data'
+            }
+        })
+
+    }
+</script>

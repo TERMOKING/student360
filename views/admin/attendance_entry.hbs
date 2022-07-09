@@ -1,0 +1,121 @@
+ {{#if status}}
+ <script>
+   Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Todays attendance already entered!',
+  //footer: '<a href="">Why do I have this issue?</a>'
+}).then(()=>{
+  window.location='/dashboard/attendance'
+})
+ </script>
+
+ {{else}}
+ 
+ <form id="myForm"  method="post" >
+<h3 style="text-align: center">ATTENDANCE ENTRY</h3>
+  <div class="row">
+    <div class="col-12">
+
+      <table class="table table-bordered">
+
+        <thead>
+          <tr>
+            <th scope="col">Token Number</th>
+            <th scope="col">Trainee Name</th>
+            <th scope="col">Attendance</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each trainees}}
+          <tr>
+
+            <th scope="row">{{this.tokennumber}}</th>
+            <td>{{this.firstname}} {{this.lastname}}</td>
+            <td>
+                <label >P</label>
+                <input type="radio"  name="{{this.tokennumber}}" value=true class="button_p" checked="checked">
+                <label >A</label>
+                <input type="radio"  name="{{this.tokennumber}}" value=false class="button_a">
+                
+                
+                
+            </td>
+
+          </tr>
+          {{/each}}
+          
+
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+  <button type="submit" class="excel_submit_button" style="margin-bottom:20px ;" id="btn-submit">Submit</button>
+</div>
+
+
+
+</form>
+
+
+<style>
+  .button_p{
+    accent-color: green;
+    width: 15px;
+    height: 15px;
+  }
+  .button_a{
+    accent-color: red;
+    width: 15px;
+    height: 15px;
+  }
+  .vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+</style> 
+
+
+<script>
+$(document).on('click', '#btn-submit', function(e) {
+    e.preventDefault();
+    Swal.fire({
+        title: 'Confirm',
+        input: 'checkbox',
+        inputValue: 0,
+        inputPlaceholder: 'Do you want to add attendance, You can not revert this',
+        confirmButtonText: 'Continue',
+        inputValidator: (result) => {
+        return !result && 'You need to agree to continue'
+        }
+    }).then(function (result) {
+      if(result.isConfirmed)
+      {
+        $('#myForm').submit();
+        Swal.fire({
+          icon:'success',
+          title:"success",
+          showConfirmButton:false,
+          timer:2000
+      })
+      }
+    })
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+{{/if}}

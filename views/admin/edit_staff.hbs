@@ -1,0 +1,74 @@
+
+
+<div class="main">
+    
+
+  <div class="head-bar">
+    <h2 class="card_headding">Edit Staff</h2>
+  </div>
+
+  <form action="/dashboard/viewstaff/profile/edit/{{staff.staffid}}" class="row g-3"  method="post" onsubmit="submitForm()">
+
+    <h5 class="card_subheadding">Personal Details :</h5>
+
+
+    <div class="col-md-6">
+      <label for="staffid" class="form-label">staff id</label>
+      <input type="text" class="form-control" value="{{staff.staffid}}" name="staffid" required="required"/>
+    </div>
+    <div class="col-md-6">
+      <label for="staffid" class="form-label"></label> 
+         </div>
+    <div class="col-md-6">
+      <label for="fname" class="form-label">First Name :</label>
+      <input type="text" class="form-control" value="{{staff.firstname}}" name="firstname" required="required"/>
+    </div>
+    <div class="col-md-6">
+      <label for="lname" class="form-label">Last Name:</label>
+      <input type="text" class="form-control" value="{{staff.lastname}}" name="lastname" required="required">
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Personal Email:</label>
+      <input type="email" class="form-control" name="email" value="{{staff.email}}" required="required" placeholder="@gmail.com"/>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">NTTF mail:</label>
+      <input type="email" class="form-control" name="nttfemail" value="{{staff.nttfemail}}" required="required" placeholder="@nttf.co.in"/>
+    </div>
+
+
+    <div class="col-md-6">
+      <label for="phone" class="form-label">Phone Number:</label>
+      <input type="text" class="form-control" name="phonenumber" value="{{staff.phonenumber}}" required="required"/>
+    </div>
+    <div class="col-md-6">
+      <label for="altphone" class="form-label">Alternative Number:</label>
+      <input type="text" class="form-control" name="alternativenumber" value="{{staff.alternativenumber}}" required="required"/>
+    </div>
+
+
+    <div class="buttons-grp">
+      <button type="reset" class="btn btn-danger">Reset</button>
+      <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+    </div>
+     
+  </form>
+
+</div>
+
+<script>
+ function submitForm()
+{
+ 
+  Swal.fire({
+  title: 'Staff updated succesfully',
+  icon: 'success',
+   showCancelButton: false,
+
+}).then((result) => {
+      window.location='/dashboard/viewstaff'
+})
+}
+
+</script>

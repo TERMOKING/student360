@@ -1,0 +1,59 @@
+
+<div class="main">
+  <div class="head-bar">
+    <h2 class="card_headding">NOCN Module</h2>
+  </div>
+  <form class="row g-3" action="/manage/nocn" method="POST" onsubmit="return nocn(this);"> 
+    
+      <h5 class="card_subheadding">Add new module :</h5>
+
+      <div class="col-md-6">
+        <label for="fname" class="form-label">Module name</label>
+        <input type="text" class="form-control" name="modulename" required>
+      </div>
+      <div class="col-md-6">
+        <label for="lname" class="form-label">Module id</label>
+        <input type="text" class="form-control" placeholder="#" name="moduleid" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Module discription</label>
+        <input type="address" class="form-control" name="description"  required>
+      </div>
+
+    <div class="buttons-grp">
+      <button type="reset" class="btn btn-danger">  Reset  </button>
+      <button  class="btn btn-success" type="submit" value="Submit">Submit</button>
+    </div>
+    </div>
+    
+
+  </form>
+</div>
+
+
+
+
+<script>
+ function nocn()
+{
+ 
+    Swal.fire({
+  title: 'Updated',
+  icon: 'success',
+  timer: 4000,
+   showCancelButton: false,
+  showConfirmButton: false
+
+}).then((result) => {
+  if (result.isConfirmed) {
+      window.location='/dashboard'
+  }
+})
+
+}
+
+</script>
+
+
+

@@ -1,0 +1,53 @@
+
+
+<script>
+  $(document).ready(function () {
+    var t = $('#example').DataTable({
+      paging:false,
+      ordering:false,
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            },
+        ],
+        order: [[1, 'asc']],
+    });
+ 
+    t.on('order.dt search.dt', function () {
+        let i = 1;
+ 
+        t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+            this.data(i++);
+        });
+    }).draw();
+});
+</script>
+
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.jqueryui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.jqueryui.min.css">
+
+<table id="example" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Token number</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each trainees}}
+        <tr style="cursor: pointer;" onclick="parent.location='/document_upload/viewdocuments/profile/{{this.tokennumber}}'">
+            <td></td>
+            <th>{{this.firstname}} {{this.lastname}}</th>
+            <td>{{this.tokennumber}}</td>
+            <td><a href="/document_upload/viewdocuments/profile/{{this.tokennumber}}">More</a></td>
+        </tr>
+            {{/each}}
+        </tbody>
+        
+      
+    </table>

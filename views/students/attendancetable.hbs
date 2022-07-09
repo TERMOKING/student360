@@ -1,0 +1,44 @@
+
+    <h5>current semester attendance percentage:{{attendance.percentage}}</h5>
+<table class="table table-bordered hover">
+  <thead>
+  <tr>
+    <th>sl</th>
+    <th >Date</th>
+    <th>Status</th>
+
+  </tr>
+  </thead>
+<tbody>
+
+  {{#each attendance.status}}
+  <tr>
+    <td class="tdnumber"></td>
+     <td>{{this.date}}</td>
+
+    {{#if this.status}}
+    <td style="background-color: green;color:white">Present</td>
+    {{else}}
+    <td style="background-color: red;color:white">Absent</td>
+    {{/if}}
+
+  {{/each}}
+</tbody>
+</table>
+</div>
+
+  </div>
+
+<style>
+.table
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+
+
+.tdnumber:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content:  counter(Serial); /* Display the counter */
+}
+</style>

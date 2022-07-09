@@ -1,0 +1,165 @@
+{{!-- <div class="top_bar">
+
+    <button onclick="parent.location='/dashboard/viewtrainees'" type="button" style="float:left" class="btn btn-info">go
+        back</button>
+
+
+    <button type="button" style="float: right;" class="btn btn-danger">Remove</button>
+
+    {{!-- <button onclick="parent.location='/dashboard/viewtrainees/profile/edit_traineeinfo/{{trainee._id}}'"
+        type="button" style="float: right;" class="btn btn-success">&emsp;Edit&emsp;</button> 
+
+</div> --}}
+
+
+
+
+<div class="profile_page">
+
+    <div class="col-md-12">
+    <div class="head-bar">
+    <h2 class="card_headding">Staff Profile</h2>
+  </div><br>
+
+         
+
+
+            <div class="col-lg-6" style="float:left;">
+
+                <label class="profile_label" for="staffid" style="profile-caps"> Staff Id : {{staff.staffid}}</label>
+
+                <br>
+   
+                <label class="profile_label"> Name : </label></td>
+                <label for="">{{staff.firstname}} {{staff.lastname}}</label>
+                <br>
+                <label class="profile_label"> Phone : </label></td>
+                <label for="">{{staff.phonenumber}}</label>
+                <br>
+                <label class="profile_label"> Mail : </label></td>
+                <label for="">{{staff.email}}</label>
+                <br>
+                <label class="profile_label"> NTTF mail : </label></td>
+                <label for="">{{staff.nttfemail}}</label>
+                <br>
+                {{!-- <label class="profile_label"> Center : </label></td>
+                <label >{{staff.center}}</label>
+                <br> --}}
+                {{#if staff.course}}
+                <label class="profile_label"> Course : </label></td>
+                <label for="">{{staff.course}} </label>
+                <br>
+                <label class="profile_label"> Year : </label></td>
+                <label for="">{{staff.year}} </label>
+                {{else}}
+
+                <label class="profile_label"></label></td>
+                <label for=""></label>
+                <br>
+                <label class="profile_label"></label></td>
+                <label for=""></label>
+                <br>
+
+                {{/if}}
+            </div>
+           
+
+            <div class="col-lg-6" style="float:right;margin-bottom: 53px;">
+
+               
+{{#if staff.course}}
+<h3 style="color: rgb(16, 163, 16);">This staff is assigned for course: {{staff.course}} year : {{staff.year}}</h3>
+<div class="btn btn-danger" onclick="parent.location='/manage/staff/edit/remove/{{staff.staffid}}'" onclick="remove()" > remove</div>
+{{else}}
+
+        <form action="{{staff.staffid}}" method="post">
+
+                    <p>Assign this staff for a class</p>
+                <label class="form-label" for="role" style="margin-right:5px;float:left;">Role : </label>
+                <select class="form-select" name="role" style="float:left;" required>
+                    <option value="">Choose..</option>
+                    <option value="staff">Staff</option>
+                </select>
+                <br>
+
+                <label style="profile-caps"class="form-label" for="role" style="margin-right:5px;">course : </label>
+                <select  class="form-select" name="course" required>
+                    <option value="">Choose..</option>
+                    {{#each course}}
+                    <option  value="{{this.courseid}}">{{this.coursename}} - ({{this.courseid}})</option>
+                    {{/each}}
+                </select>
+
+                <label class="form-label" for="year" style="margin-right:5px;">Year : </label>
+                <select class="form-select" name="year" required>
+                    <option value="">choose..</option>
+                    <option   value="1">1st year</option >
+                    <option  value="2">2nd year</option >
+                    <option  value="3">3rd year</option >
+                </select>
+
+
+
+                <br>
+
+                
+
+
+
+
+            </div>
+
+            <button type="submit" onclick="submitForm()" class="excel_submit_button"> submit</button>
+
+            
+{{/if}}
+        </form>
+        
+
+    </div>
+</div>
+{{#if editRoleTrue}}
+{{else if editRoleFalse}}
+<p style="color: red;">Staff has been already assigned for selected course</p>
+{{/if}}
+<script>
+
+
+
+ function submitForm()
+{
+    Swal.fire({
+  title: 'Updated',
+  icon: 'success',
+  timer: 4000,
+   showCancelButton: false,
+  showConfirmButton: false
+
+}).then((result) => {
+  if (result.isConfirmed) {
+      window.location='/privilege'
+  }
+})
+
+}
+
+
+function remove()
+{
+    Swal.fire({
+  title: 'Updated',
+  icon: 'success',
+  timer: 4000,
+   showCancelButton: false,
+  showConfirmButton: false
+
+}).then((result) => {
+  if (result.isConfirmed) {
+      window.location='/privilege'
+  }
+})
+
+}
+</script>
+
+

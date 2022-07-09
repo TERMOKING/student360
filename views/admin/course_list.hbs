@@ -1,0 +1,161 @@
+{{#each course}}
+
+<h1>{{this.total}}</h1>
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <h2 style="color: rgb(47, 47, 78);text-transform:uppercase;">{{this.courseid}}</h2>
+    </ul>
+  </div>
+  <div class="card__body">
+
+
+
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course={{this.courseid}}&year=1'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">{{this.firstyear}}
+
+          </div>
+        </div>
+
+        <div class="title"> First year</div>
+
+        <div class="card__desc2">
+          Hostler:{{this.firstyearhosteler}} <br>
+          Dayscholar:{{this.firstyeardayscholar}}
+        </div>
+
+      </div>
+    </button>
+
+
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course={{this.courseid}}&year=2'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">{{this.secondyear}}
+          </div>
+        </div>
+        <div class="title"> Second year</div>
+        <div class="card__desc2">
+          Hostler:{{this.secondyearhosteler}} <br>
+          Dayscholar:{{this.secondyeardayscholar}}
+        </div>
+      </div>
+    </button>
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course={{this.courseid}}&year=3'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">{{this.thirdyear}}
+          </div>
+        </div>
+        <div class="title"> Third year</div>
+        <div class="card__desc2">
+          Hostler:{{this.thirdyearhosteler}} <br>
+          Dayscholar:{{this.thirdyeardayscholar}}
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+
+{{/each}}
+
+{{!-- <div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <h2 style="color: rgb(47, 47, 78);">CP09</h2>
+    </ul>
+  </div>
+  <div class="card-body">
+
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course=cp09&year=1'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">100
+          </div>
+        </div>
+        <div class="title"> First year</div>
+        <div class="card__desc2">
+          Hostller:12 <br>
+          Dayschollar:23
+        </div>
+      </div>
+    </button>
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course=cp09&year=2'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">100
+          </div>
+        </div>
+        <div class="title"> Second year</div>
+        <div class="card__desc2">
+          Hostller:12 <br>
+          Dayschollar:23
+        </div>
+      </div>
+    </button>
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course=cp09&year=3'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">100
+          </div>
+        </div>
+        <div class="title"> Third year</div>
+        <div class="card__desc2">
+          Hostller:12 <br>
+          Dayschollar:23
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <h2 style="color: rgb(47, 47, 78);">CP15</h2>
+    </ul>
+  </div>
+  <div class="card-body">
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course=cp15&year=1'" class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">100
+          </div>
+        </div>
+        <div class="title"> First year</div>
+        <div class="card__desc2">
+          Hostller:12 <br>
+          Dayschollar:23
+        </div>
+      </div>
+    </button>
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course=cp15&year=2'"class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">100
+          </div>
+        </div>
+        <div class="title"> Second year</div>
+        <div class="card__desc2">
+          Hostller:12 <br>
+          Dayschollar:23
+        </div>
+      </div>
+    </button>
+    <button onclick="parent.location='/dashboard/courselist/viewtrainees?course=cp15&year=3'"class="dash2">
+      <div class="card__body">
+        <div class="right_sec">
+          <div class="round_body">100
+          </div>
+        </div>
+        <div class="title"> Third year</div>
+        <div class="card__desc2">
+          Hostller:12 <br>
+          Dayschollar:23
+        </div>
+      </div>
+    </button>
+  </div>
+</div> --}}

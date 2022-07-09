@@ -1,0 +1,147 @@
+
+{{!-- profile section --}}
+
+
+                        <div class="col-md-12">
+                            <div class="card-block">
+                                <h4 class="m-b-20 p-b-5 b-b-default"> Trainee Personal Information</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Name :</p>
+                                        <h6 class="profile-caps" class="text-muted f-w-400">{{trainee.firstname}} {{trainee.lastname}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Phone Number :</p> 
+                                        <a class="m-b-10" href="tel:+91{{trainee.phonenumber}}">{{trainee.phonenumber}}</a>
+                                    </div>
+                                </div>
+                                {{!--  --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Tokennumber :</p>
+                                        <h6 class="profile-caps" class="text-muted f-w-400">{{trainee.tokennumber}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">NTTF mail :</p> 
+                                        <a href="mailto:{{trainee.email}}">{{trainee.email}}</a>
+                                    </div>
+                                </div>          
+                                {{!--  --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Date of Birth :</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.dob}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Gender :</p> 
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.gender}}</h6>
+                                    </div>
+                                </div>
+                                {{!--  --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Course:</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.course}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Catagory :</p> 
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.category}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Fee Category:</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.quota}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Current Semester:</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">Semester :{{trainee.semester}}</h6>
+                                    </div>
+                                </div>
+
+                                {{!--  --}}
+                               
+                                <h5 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Address Details</h5>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Address :</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.permanentaddress}}dfgh</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Address 2</p> 
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.currentaddress}}</h6>
+
+                                    </div>
+                                </div>
+                                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Parent's Details</h6>
+
+                                {{!--  --}}
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Father's Name :</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">{{trainee.fathersname}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Father's Mobile :</p> 
+                                        <a href="tel:+91{{trainee.fathersphonenumber}}">{{trainee.fathersphonenumber}}</a>
+
+                                    </div>
+                                </div>
+
+                                {{!--  --}}
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Mother's Name :</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-600">{{trainee.mothersname}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Mother's Mobile :</p> 
+                                        <a href="tel:+91{{trainee.mothersphonenumber}}">{{trainee.mothersphonenumber}}</a>
+                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
+                                    </div>
+                                       
+
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Mentor status :</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-600">{{trainee.mentorstatus}}</h6>
+                                    </div>
+                                    <div>
+                                        <button onclick="remove('{{trainee.tokennumber}}')" onclick="parent.location='/dashboard/viewtrainees/profile/removetrainee/{{trainee.tokennumber}}'" type="button" style="float: right;" class="btn btn-danger m-l-10">Remove</button>
+                                        <button onclick="parent.location='/dashboard/viewtrainees/profile/edittraineeinfo/{{trainee.tokennumber}}'" type="button" style=" margin-right:4px;float: right;" class="btn btn-success">&emsp;Edit&emsp;</button>
+                                    </div>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+  
+  
+<script>
+
+function remove(tokennumber)
+{
+Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#459124',
+  cancelButtonColor: '#c21b1b',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+        window.location='/dashboard/viewtrainees/profile/removetrainee/'+tokennumber
+    Swal.fire({
+      title: 'Removed',
+  text: "trainee removed succesfully",
+  icon: 'success',
+  confirmButtonColor: '#459124',
+    }).then(()=>{
+        window.location='/dashboard/courselist'
+    })
+  }
+})
+}
+</script>
+
+

@@ -1,0 +1,167 @@
+<div class="row">
+<div class="card__container">
+<div>
+   <h3>Dashboard Staff</h3>  {{!--<h5 style="color: #1a2238;margin:10px; float:right; "id="time"></h5> --}}
+</div>
+ 
+  <div onclick="parent.location='/staff/dashboard/viewtrainees'" class="dash" style="background-color:white;">
+    <div class="card__body" >
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Trainees</div>
+      <div class="card__desc">Total Trainees {{count.traineeCount}}</div>
+    </div>
+    </div>
+
+  {{!-- <div onclick="parent.location='/dashboard/viewstaff'" class="dash"  style="background-color:white;"  >
+    <div class="card__body">
+<div class="round_icon" style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-id-card"></i> </div>
+      <div class="card__title">Staffs</div>
+      <div class="card__desc">All the staff info</div>
+    </div>
+  </div> --}}
+
+
+  <div onclick="parent.location='/staff/dashboard/attendanceentry'" class="dash" style="background-color:white;" >
+    <div class="card__body"> 
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-check" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"></i>Attendance</div>
+      <div class="card__desc">Attendance Entry</div>
+      
+    </div>
+  </div>
+
+    <div onclick="parent.location='/staff/dashboard/viewattendance'" class="dash" style="background-color:white;" >
+    <div class="card__body"> 
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);padding-left:17px;"><i class="fa fa-table" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"></i>Attendance</div>
+      <div class="card__desc">Todays  P:{{count.present}} &nbsp;A:{{count.absent}}</div>
+       
+    </div>
+  </div>
+
+{{!-- <div class="dash" style="background-color:white;">
+    <div class="card__body">
+<div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-money-bill"></i> </div>
+      <div class="card__title">    Fees</div>
+      <div class="card__desc">Fees related info</div>
+    </div>
+    </div> --}}
+
+  <div onclick="parent.location='#'" class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);padding-left:17px;"><i class="fa fa-university" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"> NOCN</div>
+      <div class="card__desc">NOCN related info</div>
+    </div>
+  </div>
+
+  {{!-- <div class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fas fa-marker"></i> </div>
+
+      <div  class="card__title">   Exams</div>
+      <div class="card__desc">Exam related info</div>
+    </div>
+    </div> --}}
+ 
+  {{!-- <div class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%); padding-left:17px;"><i class="fa fa-envelope" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Reports</div>
+      <div class="card__desc">Report details</div>
+    </div>
+  </div> --}}
+
+  {{!-- <div class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-laptop" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Logins</div>
+      <div class="card__desc">Login details</div>
+    </div>
+  </div> --}}
+
+  {{!-- <div class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-users" aria-hidden="true"></i></div>
+      <div class="card__title">Profiles</div>
+      <div class="card__desc">user profiles</div>
+    </div>
+  </div> --}}
+
+  <div onclick="parent.location='/staff/dashboard/mentoring'" class="dash" style="background-color:white;" >
+    <div class="card__body">
+<div class="round_icon"style="background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);"><i class="fas fa-brain"></i>
+</div>
+      <div class="card__title">Mentoring</div>
+      <div class="card__desc">mentoring details</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<div class="row">
+
+
+<canvas id="myChart" style="background-color:rgb(247 249 249) ; border-radius:10px;" class="col-lg-6"></canvas>
+
+<script>
+var xValues = [ "CP01", "CP04" , "CP08" , "CP09" , "CP15"];
+var yValues = [143, 148, 144, 142, 141,139];
+var barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Total Trainees 2022"
+    }
+  }
+});
+</script>
+
+{{!-- CHART 2 --}}
+<canvas id="myChart2" style="background-color:rgb(247 249 249); border-radius:10px;"  class="col-lg-6"></canvas>
+
+<script>
+var xValues = [ "CP01", "CP04" , "CP08" , "CP09" , "CP15"];
+var yValues = [143, 148, 144, 142, 141,139];
+var barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart2", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Total Trainees 2022"
+    }
+  }
+});
+</script>
+</div>
+  

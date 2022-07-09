@@ -1,0 +1,262 @@
+
+<div class="row">
+
+
+<div class="card__container">
+
+ 
+  <div onclick="parent.location='/student/dashboard/profile'" class="dash" style="background-color:white;">
+    <div class="card__body" >
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);"><i class="fa fa-graduation-cap" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Profile</div>
+      <div class="card__desc" style="text-transform:uppercase;">{{user.tokennumber}}</div>
+    </div>
+    </div>
+
+
+
+  <div onclick="parent.location='/student/dashboard/attendance'" class="dash" style="background-color:white;" >
+    <div class="card__body"> 
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-check" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"></i>Attendance</div>
+      <div class="card__desc">My Attendance</div>
+      
+    </div>
+  </div>
+
+    {{!-- <div onclick="parent.location='/staff/dashboard/viewattendance'" class="dash" style="background-color:white;" >
+    <div class="card__body"> 
+      <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);padding-left:17px;"><i class="fa fa-table" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"></i>Attendance</div>
+      <div class="card__desc">Todays  P:{{count.present}} &nbsp;A:{{count.absent}}</div>
+       
+    </div>
+  </div> --}}
+
+<div class="dash" style="background-color:white;">
+    <div class="card__body">
+<div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-money-bill"></i> </div>
+      <div class="card__title">    Fees</div>
+      <div class="card__desc">Fees related info</div>
+    </div>
+    </div>
+
+  <div onclick="parent.location='#'" class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);padding-left:17px;"><i class="fa fa-university" aria-hidden="true"></i>
+ </div>
+      <div class="card__title"> NOCN</div>
+      <div class="card__desc">NOCN related info</div>
+    </div>
+  </div>
+ <div class="dash" style="background-color:white;"> 
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fas fa-marker"></i> </div>
+
+      <div  class="card__title">   Exams</div>
+      <div class="card__desc">Exam related info</div>
+    </div>
+    </div>
+ 
+  {{!-- <div style="width:100%;">
+     <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%); padding-left:17px;"><i class="fa fa-envelope" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Reports</div>
+      <div class="card__desc">Report details</div>
+    </div>
+  </div> 
+
+   <div class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-laptop" aria-hidden="true"></i>
+</div>
+      <div class="card__title">Logins</div>
+      <div class="card__desc">Login details</div>
+    </div>
+  </div>
+
+<div class="dash" style="background-color:white;">
+    <div class="card__body">
+            <div class="round_icon"style="background-image: linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%);"><i class="fa fa-users" aria-hidden="true"></i></div>
+      <div class="card__title">Profiles</div>
+      <div class="card__desc">user profiles</div>
+    </div>
+  </div> 
+
+  <div class="dash" style="background-color:white;" >
+    <div class="card__body">
+<div class="round_icon"style="background-image: linear-gradient(135deg, #3C8CE7 10%, #00EAFF 100%);"><i class="fas fa-brain"></i>
+</div>
+      <div class="card__title">Mentoring</div>
+      <div class="card__desc">mentoring details</div>
+    </div>
+  </div> --}}
+  </div>
+  <div id="piechart1" class="pie1"  style="width: 400px"></div>
+  </div>
+
+
+
+
+
+
+
+    {{!-- <div class="container">
+        
+        <div class="padding">
+
+          
+                <div class="col" style="width:300px;height:300px">
+                  <div class="test">
+                        <div class="card-header1">Attendance</div>
+                          <div class="chartjs-size-monitor">
+                                
+                                </div>
+                            </div> <canvas id="chart-line"></canvas>
+                        </div> --}}
+                
+           
+
+          
+                {{!-- <div class="col" style="width:300px;height:300px" >
+                  <div class="test">
+                        <div class="card-header1">Attendance</div>
+                            <div class="chartjs-size-monitor">
+                                
+                                </div>
+                            </div>
+                             <canvas id="chartline"></canvas>
+                        </div>
+
+        
+         </div>
+</div> --}}
+
+
+
+
+{{!-- pi chart attendace 
+{{!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script>
+    $(document).ready(function(att) {
+        var ctx = $("#chart-line");
+        var myLineChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Present", "Absent"],
+                datasets: [{
+                    data: [{{count.present}}, {{count.absent}}],
+                    backgroundColor: ["rgba(10, 148, 10, 0.822)","rgba(185, 8, 8, 0.87)"]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'NEC'
+                }
+            }
+        });
+    });
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script>
+    $(document).ready(function(att) {
+        var ctx = $("#chartline");
+        var myLineChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Present", "Absent"],
+                datasets: [{
+                    data: [16,9],
+                    backgroundColor: ["rgba(10, 148, 10, 0.822)","rgba(185, 8, 8, 0.87)"]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'NEC'
+                }
+            }
+        });
+    });
+</script> --}}
+
+
+
+
+                    
+
+
+
+
+{{!--  --}}
+
+
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawChart2);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['None', 0],
+  ['absent', {{count.absent}}],
+  ['None', 0],
+  ['present', {{count.present}}],
+  ['None', 0]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Attendance','width':550,'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+  chart.draw(data, options);
+}
+
+function drawChart2() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['None', 0],
+  ['absent', 1],
+  ['None', 0],
+  ['present', 5],
+  ['None', 0]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Attendance','width':550,'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+  chart.draw(data, options);
+}
+</script>
+
+<style>
+  .pie1{
+    margin-bottom:20px;
+    margin: 12px;
+  }
+</style>
+
+
+
+{{!--  --}}
+
+
+

@@ -1,0 +1,97 @@
+
+{{!-- profile section --}}
+
+
+                        <div class="col-md-12">
+                            <div class="card-block">
+                                <h4 class="m-b-20 p-b-5 b-b-default"> Staff Information</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Name :</p>
+                                        <h6 class="profile-caps" class="text-muted f-w-400">{{staff.firstname}} {{staff.lastname}}</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <p class="m-b-10 f-w-600">Staff Id :</p>
+                                        <h6 class="profile-caps" class="text-muted f-w-400">{{staff.staffid}}</h6>
+                                    </div>
+                                   
+                                </div>
+                                {{!--  --}}
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Phone Number :</p> 
+                                        <a class="m-b-10" href="tel:+91{{trainee.phonenumber}}">{{staff.phonenumber}}</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Alternative Number :</p> 
+                                        <a class="m-b-10" href="tel:+91{{staff.alternativenumber}}">{{staff.alternativenumber}}</a>
+                                    </div>
+                                </div>
+                                {{!--  --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Email :</p>
+                                        <a href="mailto:{{staff.email}}">{{staff.email}}</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">NTTF mail :</p> 
+                                        <a href="mailto:{{staff.nttfemail}}">{{staff.nttfemail}}</a>
+                                    </div>
+                                </div>          
+                                {{!--  --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="m-b-10 f-w-600">Incharge of:</p>
+                                        <h6 class="profile-caps"class="text-muted f-w-400">course :{{staff.course}}<br> year :{{staff.year}}</h6>
+                                    </div>
+                                </div>
+                                {{!--  --}}
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        
+                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
+                                        <button onclick="remove('{{staff.staffid}}')" style="float: right;" class="btn btn-danger m-l-10">Remove</button></form>
+                                        <button onclick="parent.location='/dashboard/viewstaff/profile/edit/{{staff.staffid}}'" type="button" style=" margin-right:4px;float: right;" class="btn btn-success">&emsp;Edit&emsp;</button>
+                                    </div>     
+                                </div>   
+                            </div>
+                        </div>
+<script>
+
+function remove(staffid)
+{
+Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#459124',
+  cancelButtonColor: '#c21b1b',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+        window.location='/dashboard/viewstaff/profile/remove/'+staffid
+    Swal.fire({
+      title: 'Removed',
+  text: "staff removed succesfully",
+  icon: 'success',
+  confirmButtonColor: '#459124',
+    }).then(()=>{
+        window.location='/dashboard/viewstaff'
+    })
+  }
+})
+}
+</script>
+  
+  
+
+
+
+

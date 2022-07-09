@@ -1,0 +1,62 @@
+<h1> view status</h1>
+<div >
+<button class="btn btn-success" onclick="parent.location='/dashboard/nocn/editstatus'" type="submit">edit status</button>
+
+</div>
+
+
+
+<script>
+  $(document).ready(function () {
+    var t = $('#example').DataTable({
+      paging:false,
+      ordering:false,
+        columnDefs: [
+            {
+                searchable: false,
+                orderable: false,
+                targets: 0,
+            },
+        ],
+        order: [[1, 'asc']],
+    });
+ 
+    t.on('order.dt search.dt', function () {
+        let i = 1;
+ 
+        t.cells(null, 0, { search: 'applied', order: 'applied' }).every(function (cell) {
+            this.data(i++);
+        });
+    }).draw();
+});
+</script>
+
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.jqueryui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.jqueryui.min.css">
+
+<table id="example" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th></th>
+            <th>tokennumber</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+                {{#each trainees}}
+        <tr style="cursor: pointer;" >
+            <td></td>
+            <td>{{this.tokennumber}}</td>
+            {{#if this.status}}
+            <td>Submitted</td>
+            {{else}}
+            <td>Not Submitted</td>
+            {{/if}}
+        </tr>
+        {{/each}}
+            
+        </tbody>
+        
+      
+    </table>

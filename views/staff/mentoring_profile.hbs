@@ -1,0 +1,152 @@
+
+
+<section id="app">
+  
+  <div class="profile_page">
+    
+    <div class="col-lg-12">
+
+
+ <div>
+  <form action="/staff/dashboard/mentoring/student/changestatus/{{trainee.tokennumber}}" style="float:right" method="post">
+   Status:<select name="mentorstatus" class="statusForm {{trainee.mentorstatus}}" >
+     <option >{{trainee.mentorstatus}}</option>
+     <option class="normal" value="normal" >Normal</option required>
+     <option class="moderate" value="moderate" >Moderate</option>
+     <option class="danger" value="danger" >Danger</option>
+   </select>
+   <button  class="btn btn-success">OK</button> 
+  </form> 
+ </div>   
+
+      <div class="card-block">
+         <h4 class="m-b-20 p-b-5 b-b-default"> Trainee Personal Information</h4>
+          <div class="row">
+          <div class="col-md-6">
+          <p class="m-b-10 f-w-600">Name :</p>
+          <h6 class="profile-caps" class="text-muted f-w-400">{{trainee.firstname}} {{trainee.lastname}}</h6>
+       </div>
+          <div class="col-md-6">
+          <p class="m-b-10 f-w-600">Phone Number :</p> 
+         <a class="m-b-10" href="tel:+91{{trainee.phonenumber}}">{{trainee.phonenumber}}</a>
+        </div>
+       </div>             {{!-- next row --}}
+       <div class="row">
+       <div class="col-md-6">
+        <p class="m-b-10 f-w-600">Tokennumber :</p>
+        <h6 id="tokennumber" class="profile-caps" class="text-muted f-w-400">{{trainee.tokennumber}}</h6>
+          </div>
+          <div class="col-md-6">
+          <p class="m-b-10 f-w-600">Parent Mobile :</p> 
+         <a href="tel:+91{{trainee.fathersphonenumber}}">{{trainee.fathersphonenumber}}</a>
+          </div>
+         </div>
+      </div>
+
+        {{#each mentor.mentor}} 
+       <div  style="border-color:{{this.category}};" class="comment">
+         <div>{{this.date}} : <i style="float:right" onclick="remove('{{@index}}')" class="fas fa-eraser"></i></div>
+<h5 style="color: {{this.category}};">{{this.description}}</h5>
+<div></div>
+</div> 
+{{/each}} 
+
+
+      <form action="/staff/dashboard/mentoring/student?id={{trainee.tokennumber}}" method="post">
+      
+
+        <textarea class="comment"  name="description" placeholder="Write a command" cols="20" rows="2" required></textarea>
+        <div style="flex-wrap: wrap;">
+        {{!-- radio buttons for mentoring --}}
+        <p style="font-weight:bold ;">Category :</p>
+        <input type="radio" type="radio" value="red" name="category" required class="radiored">
+        <label for="html">Danger:</label><br>
+        <input type="radio" type="radio" value="orange" name="category" required class="radioorange">
+        <label for="html">Moderate :</label><br>
+        <input type="radio" type="radio" value="green" name="category" required class="radiogreen">
+        <label for="html">Normal</label><br>
+      <button type="submit" class="excel_submit_button" onclick="mentoring('{{trainee.tokennumber}}')" value="Submit">Submit</button>
+
+      </div>
+         {{!-- end --}}
+</form>
+    </div>
+  </div>
+</section>
+
+<style>
+
+  .comment {
+    border-radius: 5px;
+    border: 1px solid #5291b6a6;
+    margin-bottom: 15px;
+    width: 100%;
+    color: #016BA8;
+    height:auto;
+    background: #E8E8E8;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+
+  textarea {
+    width: 100%;
+    border: none;
+    background: #E8E8E8;
+    padding: 5px 10px;
+    height: 50%;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 2px solid #016BA8;
+    transition: all 0.5s;
+    margin-top: 15px;
+  }
+</style>
+
+<script>
+function mentoring(traineeid)
+{
+   Swal.fire({
+  icon: 'success',
+  title: 'Added details',
+}).then(()=>{
+  window.location='/staff/dashboard/mentoring/student?id='+traineeid
+})
+}
+
+async function remove(index)
+{
+  var tokennumber=await document.getElementById('tokennumber').innerHTML
+  window.location='/staff/dashboard/mentoring/student/removecomment?tokennumber='+tokennumber+'&index='+index
+}
+
+
+</script>
+
+      
+
+
+      <style>
+
+.statusForm{
+  background-color: rgb(151, 151, 151);
+  height:30px;
+  width: 100px;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+}
+.normal{
+  background-color: green;
+  columns: red;
+}
+.normal::selection{
+  background-color: aqua;
+}
+.moderate{
+  background-color: orange;
+}
+.danger{
+  background-color: red;
+}
+
+</style>
